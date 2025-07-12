@@ -1,0 +1,47 @@
+{
+  "name": "orange-ui",
+  "version": "1.0.0",
+  "description": "",
+  "files": [
+    "es",
+    "lib"
+  ],
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "types": "es/types/index.d.ts",
+  "scripts": {
+    "dev": "tsc-w",
+    "build": "rm -rf es lib && tsc && tsc -p tsconfig.cjs.json",
+    "docs:dev": "dumi dev",
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Qindly/orange-ui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Qindly/orange-ui/issues"
+  },
+  "homepage": "https://github.com/Qindly/orange-ui#readme",
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
+    "@types/jest": "^30.0.0",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "dumi": "^2.4.21",
+    "jest": "^30.0.4",
+    "jest-environment-jsdom": "^30.0.4",
+    "prettier": "^3.6.2",
+    "ts-jest": "^29.4.0",
+    "typescript": "^5.8.3"
+  },
+  "peerDependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "styled-components": "^6.1.19"
+  }
+}

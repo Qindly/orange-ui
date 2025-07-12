@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "module": "esnext",
+    "target": "ES6",
+    "jsx":"react",
+    "strict": true,
+    "declaration": true,
+    "declarationDir": "./es/types",
+    "outDir": "./es",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true
+  },
+  "include": [ "src/**/*"]
+}
