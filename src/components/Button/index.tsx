@@ -67,6 +67,11 @@ const StyledButton = styled.button<{
   border-radius: ${({ $radius }) => getRadius($radius)};
   transition: all 0.2s;
   box-sizing: border-box;
+  margin-right: 8px;
+
+  &:last-child {
+    margin-right: 0;
+  }
 
   &:hover:not(:disabled) {
     filter: brightness(0.95);
