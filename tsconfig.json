@@ -1,14 +1,20 @@
 {
   "compilerOptions": {
-    "module": "esnext",
-    "target": "ES6",
-    "jsx":"react",
     "strict": true,
+    "types": ["react", "react-dom"],
     "declaration": true,
-    "declarationDir": "./es/types",
-    "outDir": "./es",
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "target": "ESNext",
+    "module": "ESNext",
+    "jsx": "react-jsx",
     "moduleResolution": "node",
-    "allowSyntheticDefaultImports": true
+    "baseUrl": "./",
+    "paths": {
+      "@@/*": [".dumi/tmp/*"],
+      "orange-ui": ["src"],
+      "orange-ui/*": ["src/*", "*"]
+    }
   },
-  "include": [ "src/**/*"]
+  "include": [".dumirc.ts", "src/**/*"]
 }
