@@ -59,67 +59,6 @@ import { Input } from 'orange-ui';
 export default () => (
   <>
     <Input disabled placeholder="禁用状态" />
-    <Input disabled value="禁用状态" />
-  </>
-);
-```
-
-## 可清空
-
-使用 clearable 属性即可得到一个可清空的输入框。
-
-```tsx
-import { Input } from 'orange-ui';
-
-export default () => (
-  <>
-    <Input clearable placeholder="可清空" />
-    <Input clearable value="可清空的内容" />
-  </>
-);
-```
-
-## 密码框
-
-使用 showPassword 属性即可得到一个可切换显示隐藏的密码框。
-
-```tsx
-import { Input } from 'orange-ui';
-
-export default () => (
-  <>
-    <Input type="password" showPassword placeholder="请输入密码" />
-    <Input type="password" showPassword value="password123" />
-  </>
-);
-```
-
-## 数字框
-
-限制只输入数字，可带增减按钮。
-
-```tsx
-import { Input } from 'orange-ui';
-
-export default () => (
-  <>
-    <Input type="number" placeholder="请输入数字" />
-    <Input type="number" min="0" max="100" placeholder="0-100" />
-  </>
-);
-```
-
-## 字数显示
-
-会显示字数的多少，然后限制多少字。
-
-```tsx
-import { Input } from 'orange-ui';
-
-export default () => (
-  <>
-    <Input maxLength={20} showCount placeholder="最多输入20个字符" />
-    <Input maxLength={50} showCount value="这是一段示例文本" />
   </>
 );
 ```
@@ -139,9 +78,66 @@ export default () => (
 );
 ```
 
+## 可清空
+
+使用 clearable 属性即可得到一个可清空的输入框。
+
+```tsx
+import { Input } from 'orange-ui';
+
+export default () => (
+  <>
+    <Input clearable placeholder="可清空" />
+  </>
+);
+```
+
+## 密码框
+
+使用 showPassword 属性即可得到一个可切换显示隐藏的密码框。
+
+```tsx
+import { Input } from 'orange-ui';
+
+export default () => (
+  <>
+    <Input type="password" showPassword placeholder="请输入密码" />
+  </>
+);
+```
+
+## 数字框
+
+限制只输入数字，可带增减按钮。
+
+```tsx
+import { Input } from 'orange-ui';
+
+export default () => (
+  <>
+    <Input type="number" placeholder="请输入数字" />
+  </>
+);
+```
+
+## 字数显示
+
+会显示字数的多少，然后限制多少字。
+
+```tsx
+import { Input } from 'orange-ui';
+
+export default () => (
+  <>
+    <Input showCount placeholder="无限制字符" />
+    <Input maxLength={20} showCount placeholder="最多输入20个字符" />
+  </>
+);
+```
+
 ## 回车事件
 
-监听回车键事件。
+监听回车键事件，按下回车后好，会在监听页面看到内容。
 
 ```tsx
 import { Input } from 'orange-ui';
