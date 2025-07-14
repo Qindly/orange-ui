@@ -1,19 +1,19 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styled, { css } from 'styled-components';
-import { InputSize, InputType, InputVariant } from '../../types/input';
+import { InputSize, InputVariant } from '../../types/input';
 
-interface InputProps
-  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'> {
+interface TextareaProps
+  extends Omit<React.TextareaHTMLAttributes<HTMLTextAreaElement>, 'size'> {
   size?: InputSize;
   variant?: InputVariant;
-  type?: InputType;
   error?: string;
-  onPressEnter?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
   clearable?: boolean;
-  showPassword?: boolean;
   showCount?: boolean;
   maxLength?: number;
   onClear?: () => void;
+  autoSize?: boolean;
+  minRows?: number;
+  maxRows?: number;
 }
 
 const getColorVars = (variant: InputVariant = 'default') => {
@@ -33,7 +33,7 @@ const getSizeVars = (size: InputSize = 'medium') => {
   };
 };
 
-const InputWrapper = styled.div<{
+const TextareaWrapper = styled.div<{
   $size: InputSize;
   $variant: InputVariant;
   $error?: string;
@@ -51,15 +51,16 @@ const InputWrapper = styled.div<{
   }
 `;
 
-const StyledInput = styled.input<{
+const StyledTextarea = styled.textarea<{
   $size: InputSize;
   $variant: InputVariant;
   $error?: string;
   $disabled?: boolean;
   $showCount?: boolean;
+  $autoSize?: boolean;
 }>`
   width: 100%;
-  height: ${({ $size }) => getSizeVars($size).height};
+  min-height: ${({ $size }) => getSizeVars($size).height};
   font-size: ${({ $size }) => getSizeVars($size).fontSize};
   padding: ${({ $size }) => getSizeVars($size).padding};
   border: 1px solid
@@ -73,6 +74,9 @@ const StyledInput = styled.input<{
   transition: all 0.2s;
   box-sizing: border-box;
   outline: none;
+  resize: ${({ $autoSize }) => ($autoSize ? 'none' : 'vertical')};
+  font-family: inherit;
+  line-height: 1.5;
 
   &:focus {
     border-color: ${({ $variant, $error }) =>
@@ -105,8 +109,7 @@ const StyledInput = styled.input<{
 const ClearButton = styled.button<{ $size: InputSize }>`
   position: absolute;
   right: 8px;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 8px;
   background: none;
   border: none;
   cursor: pointer;
@@ -125,28 +128,6 @@ const ClearButton = styled.button<{ $size: InputSize }>`
   }
 `;
 
-const PasswordToggle = styled.button<{ $size: InputSize }>`
-  position: absolute;
-  right: ${({ $size }) =>
-    $size === 'large' ? '12px' : $size === 'medium' ? '11px' : '7px'};
-  top: 50%;
-  transform: translateY(-50%);
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: #999;
-  font-size: 14px;
-  padding: 2px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.2s;
-
-  &:hover {
-    color: #666;
-  }
-`;
-
 const ErrorMessage = styled.div`
   color: #ff4d4f;
   font-size: 12px;
@@ -157,28 +138,28 @@ const ErrorMessage = styled.div`
 const CountDisplay = styled.div<{ $size: InputSize }>`
   position: absolute;
   right: 8px;
-  top: 50%;
-  transform: translateY(-50%);
+  bottom: 8px;
   font-size: 12px;
   color: #999;
   pointer-events: none;
 `;
 
-export const Input = (props: InputProps) => {
+export const Textarea = (props: TextareaProps) => {
   const {
     size = 'medium',
     variant = 'default',
-    type = 'text',
     error,
     clearable = false,
-    showPassword = false,
     maxLength,
     showCount = false,
     disabled = false,
     value,
     onChange,
-    onPressEnter,
     onClear,
+    autoSize = false,
+    minRows = 3,
+    maxRows = 1000,
+    rows = 3,
     ...restProps
   } = props;
 
@@ -186,15 +167,15 @@ export const Input = (props: InputProps) => {
   const isControlled = value !== undefined;
 
   // 只在非受控模式下使用内部状态
-  const [inputValue, setInputValue] = useState(value || '');
-  const [showPasswordText, setShowPasswordText] = useState(false);
+  const [textareaValue, setTextareaValue] = useState(value || '');
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const newValue = e.target.value;
 
     // 如果是非受控组件，更新内部状态
     if (!isControlled) {
-      setInputValue(newValue);
+      setTextareaValue(newValue);
     }
 
     // 调用父组件的onChange回调
@@ -203,51 +184,53 @@ export const Input = (props: InputProps) => {
 
   const handleClear = () => {
     if (!isControlled) {
-      setInputValue('');
+      setTextareaValue('');
     }
     onClear?.();
   };
 
-  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter') {
-      onPressEnter?.(e);
+  // 自适应高度功能
+  useEffect(() => {
+    if (autoSize && textareaRef.current) {
+      const textareaElement = textareaRef.current;
+      textareaElement.style.height = 'auto';
+
+      const lineHeight =
+        parseInt(getComputedStyle(textareaElement).lineHeight) || 20;
+      const minHeight = minRows * lineHeight;
+      const maxHeight = maxRows * lineHeight;
+
+      const scrollHeight = textareaElement.scrollHeight;
+      const newHeight = Math.min(Math.max(scrollHeight, minHeight), maxHeight);
+
+      textareaElement.style.height = `${newHeight}px`;
     }
-  };
-
-  const togglePasswordVisibility = () => {
-    setShowPasswordText(!showPasswordText);
-  };
-
-  const currentType =
-    showPassword && type === 'password'
-      ? showPasswordText
-        ? 'text'
-        : 'password'
-      : type;
+  }, [value, textareaValue, autoSize, minRows, maxRows]);
 
   // 受控组件使用传入的value，非受控组件使用内部状态
-  const displayValue = isControlled ? value : inputValue;
+  const displayValue = isControlled ? value : textareaValue;
   const currentLength = String(displayValue).length;
 
   return (
-    <InputWrapper
+    <TextareaWrapper
       $size={size}
       $variant={variant}
       $error={error}
       $disabled={disabled}
     >
-      <StyledInput
-        type={currentType}
+      <StyledTextarea
+        ref={textareaRef}
         value={displayValue}
         onChange={handleChange}
-        onKeyPress={handleKeyPress}
         disabled={disabled}
         maxLength={maxLength}
+        rows={rows}
         $size={size}
         $variant={variant}
         $error={error}
         $disabled={disabled}
         $showCount={showCount}
+        $autoSize={autoSize}
         {...restProps}
       />
 
@@ -256,24 +239,16 @@ export const Input = (props: InputProps) => {
           ✕
         </ClearButton>
       )}
-      {showPassword && type === 'password' && (
-        <PasswordToggle
-          $size={size}
-          onClick={togglePasswordVisibility}
-          type="button"
-        >
-          {showPasswordText ? '👁️' : '👁️‍🗨️'}
-        </PasswordToggle>
-      )}
 
       {showCount && (
         <CountDisplay $size={size}>
           {maxLength ? `${currentLength}/${maxLength}` : currentLength}
         </CountDisplay>
       )}
+
       {error && <ErrorMessage>{error}</ErrorMessage>}
-    </InputWrapper>
+    </TextareaWrapper>
   );
 };
 
-export default Input;
+export default Textarea;
