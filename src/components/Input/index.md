@@ -1,5 +1,5 @@
 ---
-title: Input # 配置页面标题,同时生成 <title> 标签
+title: Input输入框 # 配置页面标题,同时生成 <title> 标签
 ---
 
 <!-- 其他 Markdown 内容 -->

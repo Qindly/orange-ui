@@ -15,9 +15,7 @@
     "docs:build": "dumi build",
     "docs:preview": "dumi preview",
     "doctor": "father doctor",
-    "lint": "npm run lint:es && npm run lint:css",
     "lint:css": "stylelint \"{src,test}/**/*.{css,less}\"",
-    "lint:es": "eslint \"{src,test}/**/*.{js,jsx,ts,tsx}\"",
     "prepare": "husky install && dumi setup",
     "prepublishOnly": "father doctor && npm run build",
     "start": "npm run dev"
@@ -34,14 +32,6 @@
     "*.{css,less}": [
       "stylelint --fix",
       "prettier --write"
-    ],
-    "*.{js,jsx}": [
-      "eslint --fix",
-      "prettier --write"
-    ],
-    "*.{ts,tsx}": [
-      "eslint --fix",
-      "prettier --parser=typescript --write"
     ]
   },
   "dependencies": {
@@ -55,7 +45,6 @@
     "@types/styled-components": "^5.1.34",
     "@umijs/lint": "^4.0.0",
     "dumi": "^2.4.13",
-    "eslint": "^8.23.0",
     "father": "^4.1.0",
     "husky": "^8.0.1",
     "lint-staged": "^13.0.3",
