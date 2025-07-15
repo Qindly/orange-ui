@@ -11,46 +11,41 @@ title: Message 全局提示
 最简单的用法，3 秒后自动消失。
 
 ```tsx
-import React, { useState } from 'react';
-import { Message, Button } from 'orange-ui';
+import React from 'react';
+import { MessageApi, Button } from 'orange-ui';
 
-export default () => {
-  const [show, setShow] = useState(false);
-  return (
-    <>
-      <Button onClick={() => setShow(true)}>显示消息</Button>
-      {show && <Message content="操作成功！" onClose={() => setShow(false)} />}
-    </>
-  );
-};
+export default () => (
+  <Button onClick={() => MessageApi.info('操作成功！')}>显示消息</Button>
+);
 ```
 
 ## 不同类型
 
-通过 `type` 属性设置不同的提示类型。
+通过 MessageApi 的不同方法设置不同的提示类型。
 
 ```tsx
-import React, { useState } from 'react';
-import { Message, Button } from 'orange-ui';
+import React from 'react';
+import { MessageApi, Button } from 'orange-ui';
 
-export default () => {
-  const [type, setType] = useState();
-  return (
-    <>
-      <Button onClick={() => setType('info')}>信息</Button>
-      <Button onClick={() => setType('success')}>成功</Button>
-      <Button onClick={() => setType('warning')}>警告</Button>
-      <Button onClick={() => setType('error')}>错误</Button>
-      {type && (
-        <Message
-          type={type}
-          content={`这是${type}消息`}
-          onClose={() => setType(undefined)}
-        />
-      )}
-    </>
-  );
-};
+export default () => (
+  <>
+    <Button variant="info" onClick={() => MessageApi.info('这是信息提示')}>
+      信息
+    </Button>
+    <Button variant="success" onClick={() => MessageApi.success('操作成功！')}>
+      成功
+    </Button>
+    <Button
+      variant="warning"
+      onClick={() => MessageApi.warning('这是警告提示')}
+    >
+      警告
+    </Button>
+    <Button variant="danger" onClick={() => MessageApi.error('这是错误提示')}>
+      错误
+    </Button>
+  </>
+);
 ```
 
 ## 可关闭
@@ -58,24 +53,14 @@ export default () => {
 通过 `closable` 属性让消息可手动关闭。
 
 ```tsx
-import React, { useState } from 'react';
-import { Message, Button } from 'orange-ui';
+import React from 'react';
+import { MessageApi, Button } from 'orange-ui';
 
-export default () => {
-  const [show, setShow] = useState(false);
-  return (
-    <>
-      <Button onClick={() => setShow(true)}>显示可关闭消息</Button>
-      {show && (
-        <Message
-          content="这条消息可以关闭"
-          closable
-          onClose={() => setShow(false)}
-        />
-      )}
-    </>
-  );
-};
+export default () => (
+  <Button onClick={() => MessageApi.info('这条消息可以关闭', 3, true)}>
+    显示可关闭消息
+  </Button>
+);
 ```
 
 ## 自定义时长
@@ -83,36 +68,25 @@ export default () => {
 通过 `duration` 属性设置显示时长（单位：秒），为 0 时不会自动关闭。
 
 ```tsx
-import React, { useState } from 'react';
-import { Message, Button } from 'orange-ui';
+import React from 'react';
+import { MessageApi, Button } from 'orange-ui';
 
-export default () => {
-  const [show, setShow] = useState(false);
-  return (
-    <>
-      <Button onClick={() => setShow(true)}>显示5秒消息</Button>
-      {show && (
-        <Message
-          content="5秒后自动关闭"
-          duration={5}
-          onClose={() => setShow(false)}
-        />
-      )}
-    </>
-  );
-};
+export default () => (
+  <Button onClick={() => MessageApi.info('5秒后自动关闭', 5)}>
+    显示5秒消息
+  </Button>
+);
 ```
 
 ## API
 
-### Message Props
+### MessageApi 方法
 
-| 参数      | 说明           | 类型                                        | 默认值 |
-| --------- | -------------- | ------------------------------------------- | ------ |
-| type      | 消息类型       | 'info' \| 'success' \| 'warning' \| 'error' | 'info' |
-| content   | 消息内容       | ReactNode                                   | -      |
-| duration  | 显示时长（秒） | number                                      | 3      |
-| closable  | 是否可关闭     | boolean                                     | false  |
-| onClose   | 关闭时回调     | () => void                                  | -      |
-| style     | 自定义样式     | React.CSSProperties                         | -      |
-| className | 自定义类名     | string                                      | -      |
+| 方法    | 说明     | 参数                                                      |
+| ------- | -------- | --------------------------------------------------------- |
+| info    | 信息提示 | content: ReactNode, duration?: number, closable?: boolean |
+| success | 成功提示 | content: ReactNode, duration?: number, closable?: boolean |
+| warning | 警告提示 | content: ReactNode, duration?: number, closable?: boolean |
+| error   | 错误提示 | content: ReactNode, duration?: number, closable?: boolean |
+
+> 例：`MessageApi.info('内容', 3, true)`

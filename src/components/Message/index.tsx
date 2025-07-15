@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import '../../theme/style.css';
+import { showMessage } from './MessageContainer';
 
 export type MessageType = 'info' | 'success' | 'warning' | 'error';
 
@@ -12,7 +13,7 @@ interface MessageProps {
   onClose?: () => void;
   style?: React.CSSProperties;
   className?: string;
-  onInnerClose?:()=>void;
+  onInnerClose?: () => void;
 }
 const getColorVars = (type: MessageType = 'info') => {
   switch (type) {
@@ -48,29 +49,37 @@ const StyledMessage = styled.div<{
 }>`
   min-width: 240px;
   max-width: 420px;
-  margin: 0 auto 16px auto
-  padding: 12px 20px;
-  border-radius: 8px;
+  margin: 0 auto 16px auto;
+  padding: 14px 24px 14px 20px;
+  border-radius: 10px;
   background: ${({ $type }) => getColorVars($type).bg};
   color: ${({ $type }) => getColorVars($type).color};
   border: ${({ $type }) => getColorVars($type).border};
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.10);
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   position: relative;
-  font-size: 14px;
-  line-height: 1.6;
-  transition: all 0.2s;
+  font-size: 15px;
+  line-height: 1.7;
+  transition: all 0.3s cubic-bezier(.4,0,.2,1);
+  opacity: 1;
+  animation: fadeIn 0.3s;
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
   .message-close {
     position: absolute;
-    right: 12px;
-    top: 10px;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
     cursor: pointer;
     color: #999;
-    font-size: 16px;
+    font-size: 18px;
     background: none;
     border: none;
     padding: 0;
+    transition: color 0.2s;
     &:hover {
       color: #333;
     }
@@ -100,7 +109,7 @@ export const Message = (props: MessageProps) => {
       }, duration * 1000);
       return () => clearTimeout(timer);
     }
-  }, [duration, onClose,onInnerClose]);
+  }, [duration, onClose, onInnerClose]);
 
   if (!visible) return null;
 
@@ -123,4 +132,21 @@ export const Message = (props: MessageProps) => {
     </StyledMessage>
   );
 };
+
+const MessageApi = {
+  info(content: React.ReactNode, duration?: number, closable?: boolean) {
+    showMessage({ type: 'info', content, duration, closable });
+  },
+  success(content: React.ReactNode, duration?: number, closable?: boolean) {
+    showMessage({ type: 'success', content, duration, closable });
+  },
+  warning(content: React.ReactNode, duration?: number, closable?: boolean) {
+    showMessage({ type: 'warning', content, duration, closable });
+  },
+  error(content: React.ReactNode, duration?: number, closable?: boolean) {
+    showMessage({ type: 'error', content, duration, closable });
+  },
+};
+
 export default Message;
+export { MessageApi };

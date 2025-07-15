@@ -1,12 +1,11 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import '../../theme/style.css';
-import {
-  ButtonAppearance,
-  ButtonRadius,
-  ButtonSize,
-  ButtonVariant,
-} from '../../types/button';
+
+export type ButtonSize = 'small' | 'medium' | 'large';
+export type ButtonRadius =   'small' | 'medium' | 'large' | 'round' | 'circle';
+export type ButtonVariant = 'default' | 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info';
+export type ButtonAppearance = 'solid' | 'plain';
 
 interface ButtonProps {
   radius?: ButtonRadius;
