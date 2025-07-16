@@ -12,6 +12,7 @@ title: Select 下拉选择器
 基础的下拉选择用法。
 
 ```tsx
+import React from 'react';
 import { Select } from 'orange-ui';
 
 const options = [
@@ -28,6 +29,7 @@ export default () => <Select options={options} placeholder="请选择水果" />;
 可通过 size 属性指定下拉选择器的尺寸。支持 small、medium 和 large 三种尺寸。
 
 ```tsx
+import React from 'react';
 import { Select } from 'orange-ui';
 
 const options = [
@@ -50,6 +52,7 @@ export default () => (
 通过 disabled 属性指定是否禁用下拉选择器。
 
 ```tsx
+import React from 'react';
 import { Select } from 'orange-ui';
 
 const options = [
@@ -68,6 +71,7 @@ export default () => (
 通过 multiple 属性可以多选。
 
 ```tsx
+import React from 'react';
 import { Select } from 'orange-ui';
 
 const options = [
@@ -86,6 +90,7 @@ export default () => (
 通过 searchable 属性可以开启搜索。
 
 ```tsx
+import React from 'react';
 import { Select } from 'orange-ui';
 
 const options = [
@@ -104,6 +109,7 @@ export default () => (
 可以自定义 options 的 label 内容。
 
 ```tsx
+import React from 'react';
 import { Select } from 'orange-ui';
 
 const options = [
@@ -120,6 +126,7 @@ export default () => <Select options={options} placeholder="自定义内容" />;
 通过 error 属性显示错误提示。
 
 ```tsx
+import React from 'react';
 import { Select } from 'orange-ui';
 
 const options = [
@@ -137,16 +144,16 @@ export default () => (
 
 ### Select Props
 
-| 参数        | 说明           | 类型                                   | 可选值             | 默认值 |
-| ----------- | -------------- | -------------------------------------- | ------------------ | ------ |
-| options     | 选项列表       | { label, value, disabled? }[]          | —                  | —      |
-| value       | 选中值（受控） | string \| number \| (string\|number)[] | —                  | —      |
-| onChange    | 选中值变化回调 | (value) => void                        | —                  | —      |
-| placeholder | 占位符         | string                                 | —                  | 请选择 |
-| disabled    | 是否禁用       | boolean                                | —                  | false  |
-| multiple    | 是否多选       | boolean                                | —                  | false  |
-| searchable  | 是否可搜索     | boolean                                | —                  | false  |
-| size        | 选择器尺寸     | string                                 | small/medium/large | medium |
-| error       | 错误提示       | string                                 | —                  | —      |
-| style       | 自定义样式     | React.CSSProperties                    | —                  | —      |
-| className   | 自定义类名     | string                                 | —                  | —      |
+| 参数        | 说明           | 类型                          | 可选值             | 默认值  |
+| ----------- | -------------- | ----------------------------- | ------------------ | ------- | --------- | --- | --- |
+| options     | 选项列表       | { label, value, disabled? }[] | —                  | —       |
+| value       | 选中值（受控） | string                        | number             | (string | number)[] | —   | —   |
+| onChange    | 选中值变化回调 | (value) => void               | —                  | —       |
+| placeholder | 占位符         | string                        | —                  | 请选择  |
+| disabled    | 是否禁用       | boolean                       | —                  | false   |
+| multiple    | 是否多选       | boolean                       | —                  | false   |
+| searchable  | 是否可搜索     | boolean                       | —                  | false   |
+| size        | 选择器尺寸     | string                        | small/medium/large | medium  |
+| error       | 错误提示       | string                        | —                  | —       |
+| style       | 自定义样式     | React.CSSProperties           | —                  | —       |
+| className   | 自定义类名     | string                        | —                  | —       |

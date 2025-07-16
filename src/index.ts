@@ -6,3 +6,5 @@ export { default as Radio } from './components/Radio';
 export { default as Checkbox } from './components/Checkbox';
 export { default as FloatButton } from './components/FloatButton';
 export { default as Select } from './components/Select';
+export { default as Card } from './components/Card';
+export { default as Tooltip } from './components/Tooltip';

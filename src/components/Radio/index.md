@@ -11,6 +11,7 @@ title: Radio 单选框
 最简单的用法。
 
 ```tsx
+import React from 'react';
 import { Radio } from 'orange-ui';
 
 export default () => <Radio defaultChecked>选项A</Radio>;
@@ -86,6 +87,7 @@ export default () => {
 可以通过 disabled 属性禁用单个或整组 Radio。
 
 ```tsx
+import React from 'react';
 import { Radio } from 'orange-ui';
 
 export default () => (
@@ -106,6 +108,7 @@ export default () => (
 通过 direction="vertical" 实现垂直排列。
 
 ```tsx
+import React from 'react';
 import { Radio } from 'orange-ui';
 
 export default () => (
@@ -121,27 +124,27 @@ export default () => (
 
 ### Radio Props
 
-| 参数           | 说明         | 类型                        | 默认值 |
-| -------------- | ------------ | --------------------------- | ------ |
-| value          | 单选框的值   | string \| number \| boolean | -      |
-| checked        | 是否选中     | boolean                     | -      |
-| defaultChecked | 初始是否选中 | boolean                     | -      |
-| disabled       | 是否禁用     | boolean                     | false  |
-| onChange       | 变化时回调   | (value, e) => void          | -      |
-| children       | 单选框内容   | ReactNode                   | -      |
-| style          | 自定义样式   | React.CSSProperties         | -      |
-| className      | 自定义类名   | string                      | -      |
+| 参数           | 说明         | 类型                | 默认值 |
+| -------------- | ------------ | ------------------- | ------ | ------- | --- |
+| value          | 单选框的值   | string              | number | boolean | -   |
+| checked        | 是否选中     | boolean             | -      |
+| defaultChecked | 初始是否选中 | boolean             | -      |
+| disabled       | 是否禁用     | boolean             | false  |
+| onChange       | 变化时回调   | (value, e) => void  | -      |
+| children       | 单选框内容   | ReactNode           | -      |
+| style          | 自定义样式   | React.CSSProperties | -      |
+| className      | 自定义类名   | string              | -      |
 
 ### Radio.Group Props
 
 | 参数         | 说明         | 类型                          | 默认值     |
-| ------------ | ------------ | ----------------------------- | ---------- |
-| value        | 当前选中值   | string \| number \| boolean   | -          |
-| defaultValue | 初始选中值   | string \| number \| boolean   | -          |
+| ------------ | ------------ | ----------------------------- | ---------- | ---------- | --- |
+| value        | 当前选中值   | string                        | number     | boolean    | -   |
+| defaultValue | 初始选中值   | string                        | number     | boolean    | -   |
 | disabled     | 是否禁用     | boolean                       | false      |
 | onChange     | 变化时回调   | (value) => void               | -          |
 | options      | 批量渲染选项 | { label, value, disabled? }[] | -          |
 | children     | 自定义子项   | ReactNode                     | -          |
-| direction    | 排列方向     | 'horizontal' \| 'vertical'    | horizontal |
+| direction    | 排列方向     | 'horizontal'                  | 'vertical' | horizontal |
 | style        | 自定义样式   | React.CSSProperties           | -          |
 | className    | 自定义类名   | string                        | -          |

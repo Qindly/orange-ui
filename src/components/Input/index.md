@@ -13,6 +13,7 @@ title: Input输入框 # 配置页面标题,同时生成 <title> 标签
 基础的输入框用法。
 
 ```tsx
+import React from 'react';
 import { Input } from 'orange-ui';
 
 export default () => (
@@ -32,6 +33,7 @@ export default () => (
 可通过 size 属性指定输入框的尺寸。支持 small、medium 和 large 三种尺寸。
 
 ```tsx
+import React from 'react';
 import { Input } from 'orange-ui';
 
 export default () => (
@@ -54,6 +56,7 @@ export default () => (
 通过 disabled 属性指定是否禁用输入框。
 
 ```tsx
+import React from 'react';
 import { Input } from 'orange-ui';
 
 export default () => (
@@ -68,6 +71,7 @@ export default () => (
 下方呈现报错状态。
 
 ```tsx
+import React from 'react';
 import { Input } from 'orange-ui';
 
 export default () => (
@@ -83,6 +87,7 @@ export default () => (
 使用 clearable 属性即可得到一个可清空的输入框。
 
 ```tsx
+import React from 'react';
 import { Input } from 'orange-ui';
 
 export default () => (
@@ -97,6 +102,7 @@ export default () => (
 使用 showPassword 属性即可得到一个可切换显示隐藏的密码框。
 
 ```tsx
+import React from 'react';
 import { Input } from 'orange-ui';
 
 export default () => (
@@ -111,6 +117,7 @@ export default () => (
 限制只输入数字，可带增减按钮。
 
 ```tsx
+import React from 'react';
 import { Input } from 'orange-ui';
 
 export default () => (
@@ -125,6 +132,7 @@ export default () => (
 会显示字数的多少，然后限制多少字。
 
 ```tsx
+import React from 'react';
 import { Input } from 'orange-ui';
 
 export default () => (
@@ -140,6 +148,7 @@ export default () => (
 监听回车键事件，按下回车后好，会在监听页面看到内容。
 
 ```tsx
+import React from 'react';
 import { Input } from 'orange-ui';
 
 export default () => (

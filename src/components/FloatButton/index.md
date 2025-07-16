@@ -7,7 +7,11 @@
 
 最简单的用法。
 
-```jsx
+```tsx
+/**
+ * iframe: true
+ * compact: true
+ */
 import { FloatButton } from 'orange-ui';
 
 export default () => (
@@ -20,6 +24,10 @@ export default () => (
 通过 `shape` 设置不同的形状，支持 `circle` (圆形) 和 `square` (方形)。
 
 ```jsx
+/**
+ * iframe: true
+ * compact: true
+ */
 import { FloatButton } from 'orange-ui';
 
 export default () => (
@@ -35,6 +43,10 @@ export default () => (
 可以通过 `description` 设置文字内容，当鼠标悬停时会显示。
 
 ```jsx
+/**
+ * iframe: true
+ * compact: true
+ */
 import { FloatButton } from 'orange-ui';
 
 export default () => <FloatButton icon="?" description="联系客服" />;
@@ -45,6 +57,10 @@ export default () => <FloatButton icon="?" description="联系客服" />;
 设置 `size` 可以使用不同大小的悬浮按钮。
 
 ```jsx
+/**
+ * iframe: true
+ * compact: true
+ */
 import { FloatButton } from 'orange-ui';
 
 export default () => (
@@ -60,6 +76,10 @@ export default () => (
 通过设置 `position` 属性可以自定义悬浮按钮的位置。
 
 ```jsx
+/**
+ * iframe: true
+ * compact: true
+ */
 import { FloatButton } from 'orange-ui';
 
 export default () => (
@@ -72,6 +92,10 @@ export default () => (
 支持多种类型，通过 `variant` 设置不同的样式。
 
 ```jsx
+/**
+ * iframe: true
+ * compact: true
+ */
 import { FloatButton } from 'orange-ui';
 
 export default () => (
