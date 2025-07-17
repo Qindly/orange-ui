@@ -1,5 +1,6 @@
 ---
-title: Textarea 文本域 # 配置页面标题,同时生成 <title> 标签
+title: Textarea 文本域
+group: 数据录入 # 配置页面标题,同时生成 <title> 标签
 ---
 
 <!-- 其他 Markdown 内容 -->

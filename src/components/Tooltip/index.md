@@ -1,5 +1,6 @@
 ---
 title: Tooltip 文字提示
+group: 数据展示
 ---
 
 # Tooltip 文字提示
@@ -8,39 +9,39 @@ title: Tooltip 文字提示
 
 ## 基本用法
 
-/\*\*
-
-- iframe: true
-- compact: true
-  \*/
-  import React from 'react';
-  import { Tooltip, Button } from 'orange-ui';
+```tsx
+import React from 'react';
+import { Tooltip, Button } from 'orange-ui';
 
 export default () => (
-<Tooltip title="提示内容">
-<Button>悬停显示提示</Button>
-</Tooltip>
+  <Tooltip title="提示内容">
+    <Button>悬停显示提示</Button>
+  </Tooltip>
 );
-
 ```
 
 ## 不同位置
 
 通过 `placement` 属性设置提示框的位置。
 
-/**
- * iframe: true
- * compact: true
- */
+```tsx
 import React from 'react';
 import { Tooltip, Button } from 'orange-ui';
 
 export default () => (
   <>
-    <Tooltip title="上方" placement="top"><Button>上</Button></Tooltip>
-    <Tooltip title="下方" placement="bottom"><Button>下</Button></Tooltip>
-    <Tooltip title="左侧" placement="left"><Button>左</Button></Tooltip>
-    <Tooltip title="右侧" placement="right"><Button>右</Button></Tooltip>
+    <Tooltip title="上方" placement="top">
+      <Button>上</Button>
+    </Tooltip>
+    <Tooltip title="下方" placement="bottom">
+      <Button>下</Button>
+    </Tooltip>
+    <Tooltip title="左侧" placement="left">
+      <Button>左</Button>
+    </Tooltip>
+    <Tooltip title="右侧" placement="right">
+      <Button>右</Button>
+    </Tooltip>
   </>
 );
 ```
@@ -49,21 +50,16 @@ export default () => (
 
 通过 `disabled` 属性禁用提示。
 
-/\*\*
-
-- iframe: true
-- compact: true
-  \*/
-  import React from 'react';
-  import { Tooltip, Button } from 'orange-ui';
+```tsx
+import React from 'react';
+import { Tooltip, Button } from 'orange-ui';
 
 export default () => (
-<Tooltip title="不会显示" disabled>
-<Button>禁用提示</Button>
-</Tooltip>
+  <Tooltip title="不会显示" disabled>
+    <Button>禁用提示</Button>
+  </Tooltip>
 );
-
-````
+```
 
 ## 自定义内容
 
@@ -78,7 +74,7 @@ export default () => (
     <Button>自定义</Button>
   </Tooltip>
 );
-````
+```
 
 ## API
 

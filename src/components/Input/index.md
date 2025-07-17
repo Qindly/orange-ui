@@ -1,5 +1,6 @@
 ---
-title: Input输入框 # 配置页面标题,同时生成 <title> 标签
+title: Input输入框 # 配
+group: 数据录入
 ---
 
 <!-- 其他 Markdown 内容 -->

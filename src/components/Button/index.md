@@ -1,7 +1,5 @@
 ---
-nav:
-  title: 配置项
-  order: 1
+group: 通用
 ---
 
 <!-- 其他 Markdown 内容 -->

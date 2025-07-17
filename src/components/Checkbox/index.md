@@ -1,5 +1,6 @@
 ---
 title: Checkbox 多选框
+group: 数据录入
 ---
 
 # Checkbox 多选框
