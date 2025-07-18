@@ -12,7 +12,7 @@ group: 通用
 
 ```tsx
 import React from 'react';
-import { Button } from 'orange-ui';
+import { Button } from '@qindy/orange-ui';
 
 export default () => (
   <>
@@ -90,7 +90,7 @@ export default () => (
 通过设置 loading 属性为 true 来显示加载中状态。
 
 ```tsx
-import { Button } from 'orange-ui';
+import { Button } from '@qindy/orange-ui';
 export default () => (
   <>
     <Button icon={<span>👍</span>}>带图标</Button>
@@ -106,7 +106,7 @@ export default () => (
 使用 disabled 属性来控制按钮是否为禁用状态。 该属性接受一个 Boolean 类型的值。
 
 ```tsx
-import { Button } from 'orange-ui';
+import { Button } from '@qindy/orange-ui';
 export default () => (
   <>
     <Button disabled>Default</Button>
@@ -135,7 +135,7 @@ export default () => (
 使用 size 属性额外配置尺寸，可使用 small、medium 和 large 三种值。
 
 ```tsx
-import { Button } from 'orange-ui';
+import { Button } from '@qindy/orange-ui';
 
 export default () => (
   <>

@@ -15,7 +15,7 @@ group: 数据录入 # 配置页面标题,同时生成 <title> 标签
 
 ```tsx
 import React from 'react';
-import { Textarea } from 'orange-ui';
+import { Textarea } from '@qindy/orange-ui';
 
 export default () => (
   <>
@@ -35,7 +35,7 @@ export default () => (
 
 ```tsx
 import React from 'react';
-import { Textarea } from 'orange-ui';
+import { Textarea } from '@qindy/orange-ui';
 
 export default () => (
   <>
@@ -58,7 +58,7 @@ export default () => (
 
 ```tsx
 import React from 'react';
-import { Textarea } from 'orange-ui';
+import { Textarea } from '@qindy/orange-ui';
 
 export default () => (
   <>
@@ -73,7 +73,7 @@ export default () => (
 
 ```tsx
 import React from 'react';
-import { Textarea } from 'orange-ui';
+import { Textarea } from '@qindy/orange-ui';
 
 export default () => (
   <>
@@ -88,7 +88,7 @@ export default () => (
 
 ```tsx
 import React from 'react';
-import { Textarea } from 'orange-ui';
+import { Textarea } from '@qindy/orange-ui';
 
 export default () => (
   <>
@@ -103,7 +103,7 @@ export default () => (
 
 ```tsx
 import React from 'react';
-import { Textarea } from 'orange-ui';
+import { Textarea } from '@qindy/orange-ui';
 
 export default () => (
   <>
@@ -119,7 +119,7 @@ autoSize 属性适用于文本域，并且只有高度会自动变化。另外�
 
 ```tsx
 import React from 'react';
-import { Textarea } from 'orange-ui';
+import { Textarea } from '@qindy/orange-ui';
 
 export default () => (
   <>
@@ -136,7 +136,7 @@ export default () => (
 
 ```tsx
 import React from 'react';
-import { Textarea } from 'orange-ui';
+import { Textarea } from '@qindy/orange-ui';
 
 export default () => (
   <>

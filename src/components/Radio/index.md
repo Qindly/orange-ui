@@ -13,7 +13,7 @@ group: 数据录入
 
 ```tsx
 import React from 'react';
-import { Radio } from 'orange-ui';
+import { Radio } from '@qindy/orange-ui';
 
 export default () => <Radio defaultChecked>选项A</Radio>;
 ```
@@ -24,7 +24,7 @@ export default () => <Radio defaultChecked>选项A</Radio>;
 
 ```tsx
 import React, { useState } from 'react';
-import { Radio } from 'orange-ui';
+import { Radio } from '@qindy/orange-ui';
 
 export default () => {
   const [value, setValue] = useState('A');
@@ -47,7 +47,7 @@ export default () => {
 
 ```tsx
 import React, { useState } from 'react';
-import { Radio } from 'orange-ui';
+import { Radio } from '@qindy/orange-ui';
 
 export default () => {
   const [value, setValue] = useState('B');
@@ -67,7 +67,7 @@ export default () => {
 
 ```tsx
 import React, { useState } from 'react';
-import { Radio } from 'orange-ui';
+import { Radio } from '@qindy/orange-ui';
 
 const options = [
   { label: '苹果', value: 'apple' },
@@ -89,7 +89,7 @@ export default () => {
 
 ```tsx
 import React from 'react';
-import { Radio } from 'orange-ui';
+import { Radio } from '@qindy/orange-ui';
 
 export default () => (
   <>
@@ -110,7 +110,7 @@ export default () => (
 
 ```tsx
 import React from 'react';
-import { Radio } from 'orange-ui';
+import { Radio } from '@qindy/orange-ui';
 
 export default () => (
   <Radio.Group direction="vertical" defaultValue="1">

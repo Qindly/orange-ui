@@ -13,7 +13,7 @@ title: Card 卡片
 
 ```tsx
 import React from 'react';
-import { Card } from 'orange-ui';
+import { Card } from '@qindy/orange-ui';
 
 export default () => (
   <Card title="卡片标题">
@@ -29,7 +29,7 @@ export default () => (
 
 ```tsx
 import React from 'react';
-import { Card } from 'orange-ui';
+import { Card } from '@qindy/orange-ui';
 
 export default () => (
   <>
@@ -52,7 +52,7 @@ export default () => (
 
 ```tsx
 import React from 'react';
-import { Card } from 'orange-ui';
+import { Card } from '@qindy/orange-ui';
 
 export default () => (
   <>
@@ -84,7 +84,7 @@ export default () => (
 
 ```tsx
 import React from 'react';
-import { Card, Button } from 'orange-ui';
+import { Card, Button } from '@qindy/orange-ui';
 
 export default () => (
   <Card
@@ -109,7 +109,7 @@ export default () => (
 
 ```tsx
 import React from 'react';
-import { Card } from 'orange-ui';
+import { Card } from '@qindy/orange-ui';
 
 export default () => (
   <Card
@@ -127,7 +127,7 @@ export default () => (
 
 ```tsx
 import React from 'react';
-import { Card } from 'orange-ui';
+import { Card } from '@qindy/orange-ui';
 
 export default () => (
   <Card title="可悬停卡片" hoverable>
@@ -142,7 +142,7 @@ export default () => (
 
 ```tsx
 import React from 'react';
-import { Card } from 'orange-ui';
+import { Card } from '@qindy/orange-ui';
 
 export default () => (
   <Card title="可点击卡片" onClick={() => alert('卡片被点击了！')}>
@@ -157,7 +157,7 @@ export default () => (
 
 ```tsx
 import React from 'react';
-import { Card } from 'orange-ui';
+import { Card } from '@qindy/orange-ui';
 
 export default () => (
   <Card title="无边框卡片" bordered={false}>
@@ -172,7 +172,7 @@ export default () => (
 
 ```tsx
 import React from 'react';
-import { Card, Button } from 'orange-ui';
+import { Card, Button } from '@qindy/orange-ui';
 
 export default () => (
   <Card title="带额外内容的卡片" extra={<Button size="small">更多</Button>}>

@@ -13,7 +13,7 @@ group: 数据录入
 
 ```tsx
 import React from 'react';
-import { Checkbox } from 'orange-ui';
+import { Checkbox } from '@qindy/@qindy/orange-ui';
 
 export default () => <Checkbox defaultChecked>选项A</Checkbox>;
 ```
@@ -24,7 +24,7 @@ export default () => <Checkbox defaultChecked>选项A</Checkbox>;
 
 ```tsx
 import React, { useState } from 'react';
-import { Checkbox } from 'orange-ui';
+import { Checkbox } from '@qindy/@qindy/orange-ui';
 
 export default () => {
   const [checked, setChecked] = useState(false);
@@ -42,7 +42,7 @@ export default () => {
 
 ```tsx
 import React, { useState } from 'react';
-import { Checkbox } from 'orange-ui';
+import { Checkbox } from '@qindy/@qindy/orange-ui';
 
 export default () => {
   const [checkedList, setCheckedList] = useState(['A']);
@@ -62,7 +62,7 @@ export default () => {
 
 ```tsx
 import React, { useState } from 'react';
-import { Checkbox } from 'orange-ui';
+import { Checkbox } from '@qindy/@qindy/orange-ui';
 
 const options = [
   { label: '苹果', value: 'apple' },
@@ -88,7 +88,7 @@ export default () => {
 
 ```tsx
 import React from 'react';
-import { Checkbox } from 'orange-ui';
+import { Checkbox } from '@qindy/@qindy/orange-ui';
 
 export default () => (
   <>
@@ -107,7 +107,7 @@ export default () => (
 
 ```tsx
 import React, { useState } from 'react';
-import { Checkbox } from 'orange-ui';
+import { Checkbox } from '@qindy/@qindy/orange-ui';
 
 export default () => {
   const [checkedList, setCheckedList] = useState(['A']);
@@ -143,7 +143,7 @@ export default () => {
 
 ```tsx
 import React from 'react';
-import { Checkbox } from 'orange-ui';
+import { Checkbox } from '@qindy/@qindy/orange-ui';
 
 export default () => (
   <Checkbox.Group direction="vertical" defaultValue={['1']}>

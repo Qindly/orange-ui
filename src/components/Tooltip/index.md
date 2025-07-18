@@ -11,7 +11,7 @@ group: 数据展示
 
 ```tsx
 import React from 'react';
-import { Tooltip, Button } from 'orange-ui';
+import { Tooltip, Button } from '@qindy/orange-ui';
 
 export default () => (
   <Tooltip title="提示内容">
@@ -26,7 +26,7 @@ export default () => (
 
 ```tsx
 import React from 'react';
-import { Tooltip, Button } from 'orange-ui';
+import { Tooltip, Button } from '@qindy/orange-ui';
 
 export default () => (
   <>
@@ -52,7 +52,7 @@ export default () => (
 
 ```tsx
 import React from 'react';
-import { Tooltip, Button } from 'orange-ui';
+import { Tooltip, Button } from '@qindy/orange-ui';
 
 export default () => (
   <Tooltip title="不会显示" disabled>
@@ -67,7 +67,7 @@ export default () => (
 
 ```tsx
 import React from 'react';
-import { Tooltip, Button } from 'orange-ui';
+import { Tooltip, Button } from '@qindy/orange-ui';
 
 export default () => (
   <Tooltip title={<span style={{ color: 'yellow' }}>自定义内容</span>}>

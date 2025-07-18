@@ -14,7 +14,7 @@ group: 数据录入
 
 ```tsx
 import React from 'react';
-import { Select } from 'orange-ui';
+import { Select } from '@qindy/orange-ui';
 
 const options = [
   { label: '苹果', value: 'apple' },
@@ -31,7 +31,7 @@ export default () => <Select options={options} placeholder="请选择水果" />;
 
 ```tsx
 import React from 'react';
-import { Select } from 'orange-ui';
+import { Select } from '@qindy/orange-ui';
 
 const options = [
   { label: '苹果', value: 'apple' },
@@ -54,7 +54,7 @@ export default () => (
 
 ```tsx
 import React from 'react';
-import { Select } from 'orange-ui';
+import { Select } from '@qindy/orange-ui';
 
 const options = [
   { label: '苹果', value: 'apple' },
@@ -73,7 +73,7 @@ export default () => (
 
 ```tsx
 import React from 'react';
-import { Select } from 'orange-ui';
+import { Select } from '@qindy/orange-ui';
 
 const options = [
   { label: '苹果', value: 'apple' },
@@ -92,7 +92,7 @@ export default () => (
 
 ```tsx
 import React from 'react';
-import { Select } from 'orange-ui';
+import { Select } from '@qindy/orange-ui';
 
 const options = [
   { label: '苹果', value: 'apple' },
@@ -111,7 +111,7 @@ export default () => (
 
 ```tsx
 import React from 'react';
-import { Select } from 'orange-ui';
+import { Select } from '@qindy/orange-ui';
 
 const options = [
   { label: <span style={{ color: 'red' }}>苹果</span>, value: 'apple' },
@@ -128,7 +128,7 @@ export default () => <Select options={options} placeholder="自定义内容" />;
 
 ```tsx
 import React from 'react';
-import { Select } from 'orange-ui';
+import { Select } from '@qindy/orange-ui';
 
 const options = [
   { label: '苹果', value: 'apple' },

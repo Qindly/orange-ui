@@ -13,7 +13,7 @@ group: 反馈
 
 ```tsx
 import React from 'react';
-import { MessageApi, Button } from 'orange-ui';
+import { MessageApi, Button } from '@qindy/orange-ui';
 
 export default () => (
   <Button onClick={() => MessageApi.info('操作成功！')}>显示消息</Button>
@@ -26,7 +26,7 @@ export default () => (
 
 ```tsx
 import React from 'react';
-import { MessageApi, Button } from 'orange-ui';
+import { MessageApi, Button } from '@qindy/orange-ui';
 
 export default () => (
   <>
@@ -55,7 +55,7 @@ export default () => (
 
 ```tsx
 import React from 'react';
-import { MessageApi, Button } from 'orange-ui';
+import { MessageApi, Button } from '@qindy/orange-ui';
 
 export default () => (
   <Button onClick={() => MessageApi.info('这条消息可以关闭', 3, true)}>
@@ -70,7 +70,7 @@ export default () => (
 
 ```tsx
 import React from 'react';
-import { MessageApi, Button } from 'orange-ui';
+import { MessageApi, Button } from '@qindy/orange-ui';
 
 export default () => (
   <Button onClick={() => MessageApi.info('5秒后自动关闭', 5)}>
