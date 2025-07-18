@@ -15,7 +15,7 @@ group: 数据录入
 
 ```tsx
 import React from 'react';
-import { Input } from 'orange-ui';
+import { Input } from '@qindy/orange-ui';
 
 export default () => (
   <>
@@ -35,7 +35,7 @@ export default () => (
 
 ```tsx
 import React from 'react';
-import { Input } from 'orange-ui';
+import { Input } from '@qindy/orange-ui';
 
 export default () => (
   <>
@@ -58,7 +58,7 @@ export default () => (
 
 ```tsx
 import React from 'react';
-import { Input } from 'orange-ui';
+import { Input } from '@qindy/orange-ui';
 
 export default () => (
   <>
@@ -73,7 +73,7 @@ export default () => (
 
 ```tsx
 import React from 'react';
-import { Input } from 'orange-ui';
+import { Input } from '@qindy/orange-ui';
 
 export default () => (
   <>
@@ -89,7 +89,7 @@ export default () => (
 
 ```tsx
 import React from 'react';
-import { Input } from 'orange-ui';
+import { Input } from '@qindy/orange-ui';
 
 export default () => (
   <>
@@ -104,7 +104,7 @@ export default () => (
 
 ```tsx
 import React from 'react';
-import { Input } from 'orange-ui';
+import { Input } from '@qindy/orange-ui';
 
 export default () => (
   <>
@@ -119,7 +119,7 @@ export default () => (
 
 ```tsx
 import React from 'react';
-import { Input } from 'orange-ui';
+import { Input } from '@qindy/orange-ui';
 
 export default () => (
   <>
@@ -134,7 +134,7 @@ export default () => (
 
 ```tsx
 import React from 'react';
-import { Input } from 'orange-ui';
+import { Input } from '@qindy/orange-ui';
 
 export default () => (
   <>
@@ -150,7 +150,7 @@ export default () => (
 
 ```tsx
 import React from 'react';
-import { Input } from 'orange-ui';
+import { Input } from '@qindy/orange-ui';
 
 export default () => (
   <Input

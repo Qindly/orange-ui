@@ -16,7 +16,7 @@ group: 通用
  * iframe: true
  * compact: true
  */
-import { FloatButton } from 'orange-ui';
+import { FloatButton } from '@qindy/orange-ui';
 
 export default () => (
   <FloatButton icon="+" onClick={() => console.log('clicked')} />
@@ -32,7 +32,7 @@ export default () => (
  * iframe: true
  * compact: true
  */
-import { FloatButton } from 'orange-ui';
+import { FloatButton } from '@qindy/orange-ui';
 
 export default () => (
   <>
@@ -51,7 +51,7 @@ export default () => (
  * iframe: true
  * compact: true
  */
-import { FloatButton } from 'orange-ui';
+import { FloatButton } from '@qindy/orange-ui';
 
 export default () => <FloatButton icon="?" description="联系客服" />;
 ```
@@ -65,7 +65,7 @@ export default () => <FloatButton icon="?" description="联系客服" />;
  * iframe: true
  * compact: true
  */
-import { FloatButton } from 'orange-ui';
+import { FloatButton } from '@qindy/orange-ui';
 
 export default () => (
   <>
@@ -84,7 +84,7 @@ export default () => (
  * iframe: true
  * compact: true
  */
-import { FloatButton } from 'orange-ui';
+import { FloatButton } from '@qindy/orange-ui';
 
 export default () => (
   <FloatButton icon="+" position={{ bottom: 100, right: 100 }} />
@@ -100,7 +100,7 @@ export default () => (
  * iframe: true
  * compact: true
  */
-import { FloatButton } from 'orange-ui';
+import { FloatButton } from '@qindy/orange-ui';
 
 export default () => (
   <>
