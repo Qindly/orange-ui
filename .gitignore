@@ -11,18 +11,45 @@ node_modules
 .dumi/tmp-production
 .dumi/
 
+# Babel 编译缓存
+babel.cache.json
+
+# Jest 覆盖率输出
+coverage/
+jest-cache/
+jest.config.js.snap
+
+# TypeScript 编译缓存
+*.tsbuildinfo
+
 # Mac 系统文件
 .DS_Store
 
 # VSCode 配置
 .vscode/
 
+# WebStorm/IDEA 配置
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
 # 日志
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
-
-# 其他常见忽略
-coverage/
 *.log
+
+# 运行时环境变量
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# 其他临时文件
+*.swp
+*.tmp
+*.bak

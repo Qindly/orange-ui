@@ -1,5 +1,5 @@
 ---
-title: Button # 配置页面标题,同时生成 <title> 标签
+group: 通用
 ---
 
 <!-- 其他 Markdown 内容 -->
@@ -11,6 +11,7 @@ title: Button # 配置页面标题,同时生成 <title> 标签
 使用 variant、appearance、radius 和 size 来定义按钮的样式。
 
 ```tsx
+import React from 'react';
 import { Button } from '@qindy/orange-ui';
 
 export default () => (

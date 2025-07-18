@@ -1,12 +1,11 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import '../../theme/style.css';
-import {
-  ButtonAppearance,
-  ButtonRadius,
-  ButtonSize,
-  ButtonVariant,
-} from '../../types/button';
+
+export type ButtonSize = 'small' | 'medium' | 'large';
+export type ButtonRadius =   'small' | 'medium' | 'large' | 'round' | 'circle';
+export type ButtonVariant = 'default' | 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info';
+export type ButtonAppearance = 'solid' | 'plain';
 
 interface ButtonProps {
   radius?: ButtonRadius;
@@ -24,17 +23,24 @@ const getColorVars = (
   variant: ButtonVariant = 'default',
   appearance: ButtonAppearance = 'solid',
 ) => {
-  if (appearance === 'plain') {
+  if (appearance === 'plain' && variant !== 'default') {
     return {
       bg: `var(--color-${variant}-plain, #fff)`,
       color: `var(--color-${variant},#333)`,
       border: `1px solid var(--color-${variant},#d9d9d9)`,
     };
-  } else {
+  }
+  else if (variant !== 'default') {
     return {
       bg: `var(--color-${variant},#1677ff)`,
       color: `#fff`,
       border: `none`,
+    };
+  } else {
+    return {
+      bg: '#fff',
+      color: '#222',
+      border: '1px solid #222',
     };
   }
 };

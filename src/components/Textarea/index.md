@@ -1,5 +1,6 @@
 ---
-title: Textarea # 配置页面标题,同时生成 <title> 标签
+title: Textarea 文本域
+group: 数据录入 # 配置页面标题,同时生成 <title> 标签
 ---
 
 <!-- 其他 Markdown 内容 -->
@@ -13,6 +14,7 @@ title: Textarea # 配置页面标题,同时生成 <title> 标签
 基础的文本域用法。
 
 ```tsx
+import React from 'react';
 import { Textarea } from '@qindy/orange-ui';
 
 export default () => (
@@ -32,6 +34,7 @@ export default () => (
 可通过 size 属性指定文本域的尺寸。支持 small、medium 和 large 三种尺寸。
 
 ```tsx
+import React from 'react';
 import { Textarea } from '@qindy/orange-ui';
 
 export default () => (
@@ -54,6 +57,7 @@ export default () => (
 通过 disabled 属性指定是否禁用文本域。
 
 ```tsx
+import React from 'react';
 import { Textarea } from '@qindy/orange-ui';
 
 export default () => (
@@ -68,6 +72,7 @@ export default () => (
 下方呈现报错状态。
 
 ```tsx
+import React from 'react';
 import { Textarea } from '@qindy/orange-ui';
 
 export default () => (
@@ -82,6 +87,7 @@ export default () => (
 使用 clearable 属性即可得到一个可清空的文本域。
 
 ```tsx
+import React from 'react';
 import { Textarea } from '@qindy/orange-ui';
 
 export default () => (
@@ -96,6 +102,7 @@ export default () => (
 会显示字数的多少，然后限制多少字。
 
 ```tsx
+import React from 'react';
 import { Textarea } from '@qindy/orange-ui';
 
 export default () => (
@@ -111,6 +118,7 @@ export default () => (
 autoSize 属性适用于文本域，并且只有高度会自动变化。另外可以设定最小行数和最大行数。
 
 ```tsx
+import React from 'react';
 import { Textarea } from '@qindy/orange-ui';
 
 export default () => (
@@ -127,6 +135,7 @@ export default () => (
 通过 rows 属性指定文本域的初始行数。
 
 ```tsx
+import React from 'react';
 import { Textarea } from '@qindy/orange-ui';
 
 export default () => (
