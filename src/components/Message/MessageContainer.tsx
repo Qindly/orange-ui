@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import Message, { MessageType } from './index';
 
@@ -10,6 +10,8 @@ export interface MessageConfig {
 }
 
 let addMessage: (msg: MessageConfig) => void;
+
+const MESSAGE_CONTAINER_ID = '__orange_ui_message_container__';
 
 const MessageContainer = () => {
   const [messages, setMessages] = useState<MessageConfig[]>([]);
@@ -46,10 +48,25 @@ const MessageContainer = () => {
   );
 };
 
-// 只挂载一次
-const div = document.createElement('div');
-document.body.appendChild(div);
-ReactDOM.render(<MessageContainer />, div);
+function ensureContainer() {
+  let container = document.getElementById(MESSAGE_CONTAINER_ID);
+  if (!container) {
+    container = document.createElement('div');
+    container.id = MESSAGE_CONTAINER_ID;
+    document.body.appendChild(container);
+  }
+  return container;
+}
+
+// Portal 挂载逻辑
+function renderPortal() {
+  const container = ensureContainer();
+  ReactDOM.render(<MessageContainer />, container);
+}
+
+if (typeof window !== 'undefined') {
+  renderPortal();
+}
 
 export function showMessage(config: MessageConfig) {
   addMessage(config);

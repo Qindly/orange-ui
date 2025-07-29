@@ -158,28 +158,28 @@ export default () => (
 
 ### Checkbox Props
 
-| 参数           | 说明         | 类型                 | 默认值 |
-| -------------- | ------------ | -------------------- | ------ | ------- | --- |
-| checked        | 是否选中     | boolean              | -      |
-| defaultChecked | 初始是否选中 | boolean              | -      |
-| disabled       | 是否禁用     | boolean              | false  |
-| indeterminate  | 是否半选     | boolean              | false  |
-| onChange       | 变化时回调   | (checked, e) => void | -      |
-| children       | 多选框内容   | ReactNode            | -      |
-| style          | 自定义样式   | React.CSSProperties  | -      |
-| className      | 自定义类名   | string               | -      |
-| value          | 多选框的值   | string               | number | boolean | -   |
+| 参数           | 说明         | 类型                        | 默认值 |
+| -------------- | ------------ | --------------------------- | ------ |
+| checked        | 是否选中     | boolean                     | -      |
+| defaultChecked | 初始是否选中 | boolean                     | -      |
+| disabled       | 是否禁用     | boolean                     | false  |
+| indeterminate  | 是否半选     | boolean                     | false  |
+| onChange       | 变化时回调   | (checked, e) => void        | -      |
+| children       | 多选框内容   | ReactNode                   | -      |
+| style          | 自定义样式   | React.CSSProperties         | -      |
+| className      | 自定义类名   | string                      | -      |
+| value          | 多选框的值   | string \| number \| boolean | -      |
 
 ### Checkbox.Group Props
 
-| 参数         | 说明           | 类型                          | 默认值     |
-| ------------ | -------------- | ----------------------------- | ---------- | ---------- | --- |
-| value        | 当前选中值数组 | (string                       | number     | boolean)[] | -   |
-| defaultValue | 初始选中值数组 | (string                       | number     | boolean)[] | -   |
-| disabled     | 是否禁用       | boolean                       | false      |
-| options      | 批量渲染选项   | { label, value, disabled? }[] | -          |
-| onChange     | 变化时回调     | (checkedList) => void         | -          |
-| children     | 自定义子项     | ReactNode                     | -          |
-| style        | 自定义样式     | React.CSSProperties           | -          |
-| className    | 自定义类名     | string                        | -          |
-| direction    | 排列方向       | 'horizontal'                  | 'vertical' | horizontal |
+| 参数         | 说明           | 类型                            | 默认值     |
+| ------------ | -------------- | ------------------------------- | ---------- |
+| value        | 当前选中值数组 | (string \| number \| boolean)[] | -          |
+| defaultValue | 初始选中值数组 | (string \| number \| boolean)[] | -          |
+| disabled     | 是否禁用       | boolean                         | false      |
+| options      | 批量渲染选项   | { label, value, disabled? }[]   | -          |
+| onChange     | 变化时回调     | (checkedList) => void           | -          |
+| children     | 自定义子项     | ReactNode                       | -          |
+| style        | 自定义样式     | React.CSSProperties             | -          |
+| className    | 自定义类名     | string                          | -          |
+| direction    | 排列方向       | 'horizontal' \| 'vertical'      | horizontal |
