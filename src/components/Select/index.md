@@ -145,16 +145,16 @@ export default () => (
 
 ### Select Props
 
-| 参数        | 说明           | 类型                          | 可选值             | 默认值  |
-| ----------- | -------------- | ----------------------------- | ------------------ | ------- | --------- | --- | --- |
-| options     | 选项列表       | { label, value, disabled? }[] | —                  | —       |
-| value       | 选中值（受控） | string                        | number             | (string | number)[] | —   | —   |
-| onChange    | 选中值变化回调 | (value) => void               | —                  | —       |
-| placeholder | 占位符         | string                        | —                  | 请选择  |
-| disabled    | 是否禁用       | boolean                       | —                  | false   |
-| multiple    | 是否多选       | boolean                       | —                  | false   |
-| searchable  | 是否可搜索     | boolean                       | —                  | false   |
-| size        | 选择器尺寸     | string                        | small/medium/large | medium  |
-| error       | 错误提示       | string                        | —                  | —       |
-| style       | 自定义样式     | React.CSSProperties           | —                  | —       |
-| className   | 自定义类名     | string                        | —                  | —       |
+| 参数        | 说明           | 类型                                                        | 可选值               | 默认值   |
+| ----------- | -------------- | ----------------------------------------------------------- | -------------------- | -------- |
+| options     | 选项列表       | `{ label, value, disabled? }[]`                             | —                    | —        |
+| value       | 选中值（受控） | `string \| number \| (string \| number)[]`                  | —                    | —        |
+| onChange    | 选中值变化回调 | `(value: string \| number \| (string \| number)[]) => void` | —                    | —        |
+| placeholder | 占位符         | `string`                                                    | —                    | `请选择` |
+| disabled    | 是否禁用       | `boolean`                                                   | —                    | `false`  |
+| multiple    | 是否多选       | `boolean`                                                   | —                    | `false`  |
+| searchable  | 是否可搜索     | `boolean`                                                   | —                    | `false`  |
+| size        | 选择器尺寸     | `'small' \| 'medium' \| 'large'`                            | `small/medium/large` | `medium` |
+| error       | 错误提示       | `string`                                                    | —                    | —        |
+| style       | 自定义样式     | `React.CSSProperties`                                       | —                    | —        |
+| className   | 自定义类名     | `string`                                                    | —                    | —        |
