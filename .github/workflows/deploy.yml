@@ -1,0 +1,57 @@
+# .github/workflows/deploy.yml
+
+name: Deploy Docs to GitHub Pages
+
+on:
+  # 当你往 main 分支推送代码时，这个机器人就会被触发
+  push:
+    branches:
+      - main # 如果你的主分支叫 master，请改成 master
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest # 使用最新的 Ubuntu 系统作为运行环境
+    steps:
+      - name: Checkout # 第一步：把你的代码拉取到机器人所在的虚拟机
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup pnpm # 第二步：安装 pnpm（如果主人你用的是 npm 或 yarn，请自行替换）
+        uses: pnpm/action-setup@v3
+        with:
+          version: 8 # pnpm 的版本号
+
+      - name: Setup Node.js # 第三步：安装 Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18 # Node.js 的版本号，建议和你本地开发保持一致
+          cache: 'pnpm' # 缓存依赖，加快后续构建速度
+
+      - name: Install dependencies # 第四步：安装项目所有依赖
+        run: pnpm install
+
+      - name: Build # 第五步：执行构建命令，生成静态文件
+        run: pnpm build # 这个命令对应你 package.json 里的 "build" 脚本
+
+      - name: Upload artifact # 第六步：上传构建产物，为部署做准备
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs-dist # dumi 默认的构建输出目录
+
+  deploy:
+    needs: build # 依赖上一个 build 任务成功完成
+    runs-on: ubuntu-latest
+    name: Deploy
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }} # 部署后的网址
+    steps:
+      - name: Deploy to GitHub Pages # 最后一步：部署到 GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
