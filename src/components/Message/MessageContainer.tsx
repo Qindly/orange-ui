@@ -1,4 +1,5 @@
 import React, { useState, useCallback, useEffect } from 'react';
+import { createRoot, Root } from 'react-dom/client';
 import ReactDOM from 'react-dom';
 import Message, { MessageType } from './index';
 
@@ -7,23 +8,60 @@ export interface MessageConfig {
   content: React.ReactNode;
   duration?: number;
   closable?: boolean;
+  onClose?: () => void;
 }
 
-let addMessage: (msg: MessageConfig) => void;
+interface MessageInstance extends MessageConfig {
+  id: number;
+}
 
 const MESSAGE_CONTAINER_ID = '__orange_ui_message_container__';
 
-const MessageContainer = () => {
-  const [messages, setMessages] = useState<MessageConfig[]>([]);
+let messages: MessageInstance[] = [];
+let root: Root | null = null;
 
-  const remove = useCallback((index: number) => {
-    setMessages(msgs => msgs.filter((_, i) => i !== index));
-  }, []);
 
-  addMessage = (msg: MessageConfig) => {
-    setMessages(msgs => [...msgs, msg]);
-  };
+const renderMessages = () => {
+  let container = document.getElementById(MESSAGE_CONTAINER_ID);
+  if (!container) {
+    {
+      container = document.createElement('div');
+      container.id = MESSAGE_CONTAINER_ID;
+      document.body.appendChild(container);
+    }
+  }
 
+  if (!root) {
+    root = createRoot(container);
+  }
+
+  root.render(<MessageContainer messages={messages} />)
+};
+
+export function showMessage(config: MessageConfig) {
+  const id = Date.now() + Math.random();
+  messages = [...messages, { ...config, id }];
+  renderMessages();
+}
+
+function removeMessage(id: number) {
+  const currentMessage = messages.find(msg => msg.id == id);
+  if (currentMessage && currentMessage.onClose) {
+    currentMessage.onClose();
+  }
+  messages = messages.filter(msg => msg.id != id);
+  if (messages.length === 0 && root) {
+    root.unmount();
+    const container = document.getElementById(MESSAGE_CONTAINER_ID);
+    if (container) {
+      document.body.removeChild(container);
+    }
+    root = null;
+  } else {
+    renderMessages();
+  }
+}
+const MessageContainer: React.FC<{ messages: MessageInstance[] }> = ({ messages }) => {
   return (
     <div style={{
       position: 'fixed',
@@ -36,38 +74,11 @@ const MessageContainer = () => {
       flexDirection: 'column',
       alignItems: 'center',
     }}>
-      {messages.map((msg, idx) => (
-        <div key={idx} style={{ pointerEvents: 'auto' }}>
-          <Message
-            {...msg}
-            onInnerClose={() => remove(idx)}
-          />
+      {messages.map((msg) => (
+        <div key={msg.id} style={{ pointerEvents: 'auto' }}>
+          <Message {...msg} onInnerClose={() => removeMessage(msg.id)} />
         </div>
       ))}
     </div>
-  );
-};
-
-function ensureContainer() {
-  let container = document.getElementById(MESSAGE_CONTAINER_ID);
-  if (!container) {
-    container = document.createElement('div');
-    container.id = MESSAGE_CONTAINER_ID;
-    document.body.appendChild(container);
-  }
-  return container;
+  )
 }
-
-// Portal 挂载逻辑
-function renderPortal() {
-  const container = ensureContainer();
-  ReactDOM.render(<MessageContainer />, container);
-}
-
-if (typeof window !== 'undefined') {
-  renderPortal();
-}
-
-export function showMessage(config: MessageConfig) {
-  addMessage(config);
-} 

@@ -44,6 +44,7 @@ const getColorVars = (type: MessageType = 'info') => {
       };
   }
 };
+
 const StyledMessage = styled.div<{
   $type: MessageType;
 }>`
@@ -134,17 +135,17 @@ export const Message = (props: MessageProps) => {
 };
 
 const MessageApi = {
-  info(content: React.ReactNode, duration?: number, closable?: boolean) {
-    showMessage({ type: 'info', content, duration, closable });
+  info(content: React.ReactNode, duration?: number, closable?: boolean, onClose?: () => void) {
+    showMessage({ type: 'info', content, duration, closable, onClose });
   },
-  success(content: React.ReactNode, duration?: number, closable?: boolean) {
-    showMessage({ type: 'success', content, duration, closable });
+  success(content: React.ReactNode, duration?: number, closable?: boolean, onClose?: () => void) {
+    showMessage({ type: 'success', content, duration, closable, onClose });
   },
-  warning(content: React.ReactNode, duration?: number, closable?: boolean) {
-    showMessage({ type: 'warning', content, duration, closable });
+  warning(content: React.ReactNode, duration?: number, closable?: boolean, onClose?: () => void) {
+    showMessage({ type: 'warning', content, duration, closable, onClose });
   },
-  error(content: React.ReactNode, duration?: number, closable?: boolean) {
-    showMessage({ type: 'error', content, duration, closable });
+  error(content: React.ReactNode, duration?: number, closable?: boolean, onClose?: () => void) {
+    showMessage({ type: 'error', content, duration, closable, onClose });
   },
 };
 

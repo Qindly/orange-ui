@@ -4,6 +4,7 @@ node_modules
 # 构建产物
 /dist
 /es
+/docs-dist/ # <--- 小橘帮你加上了这一行！
 
 # dumi 临时文件
 .dumi/tmp
