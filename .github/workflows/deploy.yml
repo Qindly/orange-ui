@@ -37,7 +37,7 @@ jobs:
         run: pnpm install
 
       - name: Build # 第五步：执行构建命令，生成静态文件
-        run: pnpm build # 这个命令对应你 package.json 里的 "build" 脚本
+        run: pnpm docs:build # 这个命令对应你 package.json 里的 "build" 脚本
 
       - name: Upload artifact # 第六步：上传构建产物，为部署做准备
         uses: actions/upload-pages-artifact@v3
