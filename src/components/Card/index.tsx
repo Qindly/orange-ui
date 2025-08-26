@@ -19,6 +19,17 @@ export interface CardProps {
   style?: React.CSSProperties;
   className?: string;
   onClick?: () => void;
+  /**
+   * 渐变背景：同 Button，支持预设/字符串/对象/数组
+   */
+  gradient?:
+    | 'none'
+    | 'red'
+    | 'blue'
+    | 'green'
+    | string
+    | { from: string; to: string; angle?: number }
+    | string[];
 }
 const getSizeVars = (size: CardSize = 'medium') => {
   return {
@@ -42,8 +53,14 @@ const CardWrapper = styled.div<{
   $bordered: boolean;
   $hoverable: boolean;
   $clickable: boolean;
+  $gradient?: string;
 }>`
   background: ${({ $variant }) => getColorVars($variant).background};
+  ${({ $gradient }) =>
+    $gradient && $gradient !== 'none' && css`
+      background-image: ${$gradient};
+      color: #fff;
+    `}
   border-radius: 8px;
   overflow: hidden;
   transition: all 0.3s;
@@ -51,10 +68,10 @@ const CardWrapper = styled.div<{
   margin-bottom:20px;
   font-size: ${({ $size }) => getSizeVars($size).fontSize};
   
-  ${({ $bordered, $variant }) =>
+  ${({ $bordered, $variant, $gradient }) =>
     $bordered &&
     css`
-      border: 1px solid ${getColorVars($variant).border};
+      border: ${$gradient && $gradient !== 'none' ? 'none' : `1px solid ${getColorVars($variant).border}`};
     `}
   
   ${({ $hoverable, $clickable }) =>
@@ -62,8 +79,9 @@ const CardWrapper = styled.div<{
     css`
       cursor: ${$clickable ? 'pointer' : 'default'};
       &:hover {
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
         transform: translateY(-2px);
+        filter: brightness(0.96);
       }
     `}
   
@@ -162,9 +180,32 @@ export const Card: React.FC<CardProps> = (props) => {
     style,
     className,
     onClick,
+    gradient = 'none',
   } = props;
 
   const isClickable = !!onClick;
+
+  const getGradientCss = (value?: CardProps['gradient']) => {
+    if (!value || value === 'none') return undefined;
+    if (value === 'red') return 'linear-gradient(135deg, var(--color-red-1) 0%, var(--color-red-2) 100%)';
+    if (value === 'blue') return 'linear-gradient(135deg, var(--color-blue-1) 0%, var(--color-blue-2) 100%)';
+    if (value === 'green') return 'linear-gradient(135deg, var(--color-green-1) 0%, var(--color-green-2) 100%)';
+    if (typeof value === 'object' && !Array.isArray(value)) {
+      const angle = typeof value.angle === 'number' ? value.angle : 135;
+      return `linear-gradient(${angle}deg, ${value.from} 0%, ${value.to} 100%)`;
+    }
+    if (Array.isArray(value)) {
+      const stops = value
+        .filter(Boolean)
+        .map((c, idx, arr) => {
+          const pct = Math.round((idx / Math.max(1, arr.length - 1)) * 100);
+          return `${c} ${pct}%`;
+        })
+        .join(', ');
+      return `linear-gradient(135deg, ${stops})`;
+    }
+    return String(value);
+  };
 
   return (
     <CardWrapper
@@ -173,6 +214,7 @@ export const Card: React.FC<CardProps> = (props) => {
       $bordered={bordered}
       $hoverable={hoverable}
       $clickable={isClickable}
+      $gradient={getGradientCss(gradient)}
       style={style}
       className={className}
       onClick={onClick}

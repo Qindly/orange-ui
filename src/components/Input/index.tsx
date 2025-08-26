@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
-import { InputSize, InputType, InputVariant } from '../../types/input';
 
 interface InputProps
   extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'> {
@@ -15,6 +14,24 @@ interface InputProps
   maxLength?: number;
   onClear?: () => void;
 }
+
+export type InputSize = 'small' | 'medium' | 'large';
+export type InputType =
+  | 'text'
+  | 'password'
+  | 'number'
+  | 'email'
+  | 'tel'
+  | 'url'
+  | 'search';
+export type InputVariant =
+  | 'default'
+  | 'primary'
+  | 'success'
+  | 'warning'
+  | 'danger'
+  | 'info';
+
 
 const getColorVars = (variant: InputVariant = 'default') => {
   return {

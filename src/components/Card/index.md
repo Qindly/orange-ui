@@ -80,6 +80,47 @@ export default () => (
 
 ## 带操作区域
 
+## 渐变背景与动效
+
+支持通过 `gradient` 启用渐变背景，形式同 `Button`（预设/字符串/对象/数组）。
+
+```tsx
+import React from 'react';
+import { Card } from '@qindy/orange-ui';
+
+export default () => (
+  <>
+    {/* 预设 */}
+    <Card title="红色" gradient="red" hoverable bordered={false}>
+      <p>预设红色渐变</p>
+    </Card>
+    <Card title="蓝色" gradient="blue" hoverable bordered={false}>
+      <p>预设蓝色渐变</p>
+    </Card>
+
+    {/* 对象与数组 */}
+    <Card
+      title="对象渐变"
+      gradient={{ from: '#0ea5e9', to: '#0369ae', angle: 120 }}
+      hoverable
+      bordered={false}
+    >
+      <p>对象渐变</p>
+    </Card>
+    <Card
+      title="多段渐变"
+      gradient={['#ef4444', '#b91c1c', '#7f1d1d']}
+      hoverable
+      bordered={false}
+    >
+      <p>数组多段渐变</p>
+    </Card>
+  </>
+);
+```
+
+> 渐变启用时，卡片文字颜色自动设为白色；`hoverable` 下会加深并提升阴影。
+
 通过 actions 属性可以添加操作按钮。
 
 ```tsx

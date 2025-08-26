@@ -1,12 +1,17 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import '../../theme/style.css';
-import {
-  FloatButtonShape,
-  FloatButtonSize,
-  FloatButtonVariant,
-  FloatButtonPosition,
-} from '../../types/floatButton';
+
+export type FloatButtonShape = 'circle' | 'square';
+export type FloatButtonSize = 'large' | 'small';
+export type FloatButtonVariant = 'default' | 'primary' | 'success' | 'warning' | 'danger';
+export type FloatButtonPosition = {
+  top?: number;
+  right?: number;
+  bottom?: number;
+  left?: number;
+};
+
 
 interface FloatButtonProps {
   shape?: FloatButtonShape;

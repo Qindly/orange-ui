@@ -1,22 +1,56 @@
 :root {
+  /* --- 品牌主色 (Primary) - 蓝色系 --- */
   --color-primary: #1677ff;
+  --color-blue-0: #e6f7ff;
+  --color-blue-1: #bae0ff;
+  --color-blue-2: #91caff;
+  --color-blue-3: #69b1ff;
+  --color-blue-4: #4096ff;
+  --color-blue-5: #1677ff; /* Base */
+  --color-blue-6: #0958d9;
+  --color-blue-7: #003eb3;
+  --color-blue-8: #002c8c;
+  --color-blue-9: #001d66;
+  --color-blue-10: #000f40;
+  --color-blue-11: #000a29;
+
+  /* --- 辅助色 (Secondary) - 靛蓝色系 --- */
   --color-secondary: #2f54eb;
+  --color-indigo-0: #f0f5ff;
+  --color-indigo-1: #d6e4ff;
+  --color-indigo-2: #adc6ff;
+  --color-indigo-3: #85a5ff;
+  --color-indigo-4: #597ef7;
+  --color-indigo-5: #2f54eb; /* Base */
+  --color-indigo-6: #1d39c4;
+  --color-indigo-7: #10239e;
+  --color-indigo-8: #061178;
+  --color-indigo-9: #030852;
+  --color-indigo-10: #02043d;
+  --color-indigo-11: #010229;
+
+  /* --- 成功色 (Success) - 绿色系 --- */
   --color-success: #52c41a;
+  --color-green-0: #f6ffed;
+  --color-green-1: #d9f7be;
+  --color-green-2: #b7eb8f;
+  --color-green-3: #95de64;
+  --color-green-4: #73d13d;
+  --color-green-5: #52c41a; /* Base */
+  --color-green-6: #389e0d;
+  --color-green-7: #237804;
+  --color-green-8: #135200;
+  --color-green-9: #092b00;
+  --color-green-10: #041900;
+  --color-green-11: #020d00;
+
+  /* --- 危险色 (Danger) - 红色系 (你已提供) --- */
   --color-danger: #ff4d4f;
-  --color-warning: #faad14;
-  --color-info: #909399;
-  --color-default: #555;
-  --color-primary-plain: #e6f7ff;
-  --color-success-plain: #f6ffed;
-  --color-danger-plain: #fff1f0;
-  --color-warning-plain: #fffbe6;
-  --color-info-plain: #f4f4f5;
-  --color-default-plain: #fafafa;
   --color-red-0: #fff1f0;
   --color-red-1: #ffccc7;
   --color-red-2: #ffa39e;
   --color-red-3: #ff7875;
-  --color-red-4: #ff4d4f;
+  --color-red-4: #ff4d4f; /* Base */
   --color-red-5: #f5222d;
   --color-red-6: #cf1322;
   --color-red-7: #a8071a;
@@ -24,11 +58,55 @@
   --color-red-9: #5c0011;
   --color-red-10: #400000;
   --color-red-11: #250000;
+
+  /* --- 警告色 (Warning) - 黄色系 --- */
+  --color-warning: #faad14;
+  --color-yellow-0: #fffbe6;
+  --color-yellow-1: #fff1b8;
+  --color-yellow-2: #ffe58f;
+  --color-yellow-3: #ffd666;
+  --color-yellow-4: #ffc53d;
+  --color-yellow-5: #faad14; /* Base */
+  --color-yellow-6: #d48806;
+  --color-yellow-7: #ad6800;
+  --color-yellow-8: #874d00;
+  --color-yellow-9: #613400;
+  --color-yellow-10: #452100;
+  --color-yellow-11: #2b1300;
+
+  /* --- 信息色/中性色 (Info/Neutral) - 灰色系 --- */
+  --color-info: #909399;
+  --color-default: #555; /* 自定义值 */
+  --color-gray-0: #fff; /* White */
+  --color-gray-1: #fafafa;
+  --color-gray-2: #f5f5f5;
+  --color-gray-3: #f0f0f0;
+  --color-gray-4: #d9d9d9;
+  --color-gray-5: #bfbfbf;
+  --color-gray-6: #8c8c8c;
+  --color-gray-7: #595959;
+  --color-gray-8: #434343;
+  --color-gray-9: #262626;
+  --color-gray-10: #1f1f1f;
+  --color-gray-11: #141414;
+  --color-gray-12: #000; /* Black */
+
+  /* --- Plain 朴素/淡色系 --- */
+  --color-primary-plain: #e6f7ff;
+  --color-success-plain: #f6ffed;
+  --color-danger-plain: #fff1f0;
+  --color-warning-plain: #fffbe6;
+  --color-info-plain: #f4f4f5;
+  --color-default-plain: #fafafa;
+
+  /* --- 圆角 --- */
   --radius-small: 4px;
   --radius-medium: 8px;
   --radius-large: 16px;
   --radius-round: 20px;
   --radius-circle: 50%;
+
+  /* --- 尺寸 (可能是字号或间距) --- */
   --size-small: 12px;
   --size-medium: 24px;
   --size-large: 36px;

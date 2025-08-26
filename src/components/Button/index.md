@@ -84,6 +84,44 @@ export default () => (
 );
 ```
 
+### 渐变按钮
+
+```tsx
+import React from 'react';
+import { Button } from '@qindy/orange-ui';
+
+export default () => (
+  <>
+    <Button gradient="red">红色渐变</Button>
+    <Button gradient="blue">蓝色渐变</Button>
+    <Button gradient="green">绿色渐变</Button>
+    <div style={{ marginTop: 16 }}>
+      <Button gradient="linear-gradient(135deg, red 0%, yellow 100%)">
+        linear-gradient 渐变
+      </Button>
+      <Button gradient={{ from: '#ffd666', to: '#f5222d', angle: 120 }}>
+        对象渐变（from to类型）
+      </Button>
+      <Button gradient={['#faad14', '#ad6800', '#daad14']}>多段渐变</Button>
+    </div>
+  </>
+);
+```
+
+### 动态按钮
+
+```tsx
+import React from 'react';
+import { Button } from '@qindy/orange-ui';
+
+export default () => (
+  <>
+    <Button>无动态 </Button>
+    <Button effect="pop">弹出动态</Button>
+  </>
+);
+```
+
 ## 加载状态按钮
 
 点击按钮来加载数据，并向用户反馈加载状态。
@@ -174,3 +212,5 @@ export default () => (
 | icon       | 按钮图标             | ReactNode | —                                                                 | —       |
 | onClick    | 点击按钮时的回调函数 | function  | —                                                                 | —       |
 | children   | 按钮内容             | ReactNode | —                                                                 | —       |
+| effect     | 悬停动效             | string    | none / pop                                                        | none    |
+| gradient   | 渐变背景             | string    | none / sunset / ocean / forest / 自定义 CSS 渐变                  | none    |
