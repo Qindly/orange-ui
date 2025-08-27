@@ -1,6 +1,15 @@
 import React, { useEffect, useRef, useState } from 'react';
 import styled, { css } from 'styled-components';
-import { InputSize, InputVariant } from '../../types/input';
+// import { InputSize, InputVariant } from '../../types/input';
+
+export type InputSize = 'small' | 'medium' | 'large';
+export type InputVariant =
+  | 'default'
+  | 'primary'
+  | 'success'
+  | 'warning'
+  | 'danger'
+  | 'info';
 
 interface TextareaProps
   extends Omit<React.TextareaHTMLAttributes<HTMLTextAreaElement>, 'size'> {
